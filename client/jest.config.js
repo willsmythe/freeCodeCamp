@@ -18,5 +18,19 @@ module.exports = {
   },
   transformIgnorePatterns: [
     'node_modules/(?!(gatsby)/)'
+  ],
+  reporters: [ 
+    [ 'default', {} ],
+    [ 'jest-junit', {
+        classNameTemplate: "{filepath}",
+        ancestorSeparator: " > ",    
+        titleTemplate: (vars) => {      
+          return (vars.classname ? vars.classname + " " : "") + vars.title;
+        },
+        suiteNameTemplate: (vars) => {
+          return vars.title || vars.filename;
+        }
+      }
+    ]
   ]
 };
