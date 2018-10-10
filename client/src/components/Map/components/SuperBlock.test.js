@@ -22,7 +22,7 @@ test('<SuperBlock /> not expanded snapshot', () => {
     superBlock: 'Super Block One',
     toggleSuperBlock: toggleSpy
   };
-  const componentToRender = <div {...props} />; // intentional error
+  const componentToRender = <SuperBlock {...props} />;
   const component = renderer.render(componentToRender);
 
   expect(component).toMatchSnapshot('superBlock-not-expanded');
