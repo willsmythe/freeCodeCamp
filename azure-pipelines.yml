@@ -21,7 +21,8 @@ steps:
 
 - script: |
     ulimit -a
-    sudo lsof | awk '{print $1}' | uniq -c | sort -n
+    sudo lsof $(Build.Repository.LocalPath)
+    sudo lsof $(Build.Repository.LocalPath) | awk '{print $1}' | uniq -c | sort -n
   condition: always() 
   displayName: 'Show open files, etc'
 
