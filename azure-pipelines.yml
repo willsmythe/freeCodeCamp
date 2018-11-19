@@ -24,6 +24,7 @@ steps:
     git config user.name "CamperBot"
     node ./locale.js
     npm run test
+    node ./locale.js
   displayName: 'npm run test'
 
 - script: |

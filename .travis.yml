@@ -27,3 +27,4 @@ before_script:
 
 script:
   - npm run test
+  - node ./locale.js
