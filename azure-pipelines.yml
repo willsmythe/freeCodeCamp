@@ -5,8 +5,8 @@ steps:
 
 - script: |
     node --version
-    which node --all
-    printenv
+    echo $(which node --all)
+    echo $(printenv)
   displayName: 'Show node info'
 
 - task: NodeTool@0
