@@ -85,6 +85,7 @@
     "eslint": "^5.5.0",
     "eslint-config-freecodecamp": "^1.1.1",
     "jest": "^23.6.0",
+    "jest-junit": "^5.2.0",
     "prettier": "^1.14.2",
     "prettier-eslint-cli": "^4.7.1",
     "react-test-renderer": "^16.5.2",
