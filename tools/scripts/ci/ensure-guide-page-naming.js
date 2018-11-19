@@ -46,7 +46,7 @@ function checkFile(file) {
     });
 }
 
-readdirp({ root: guideRoot })
+readdirp({ root: guideRoot, concurrency: 1 })
   .on('data', file =>
     checkFile(file).catch(err => {
       console.error(err);
