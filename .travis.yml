@@ -17,13 +17,13 @@ sudo: false
 before_install:
   - npm config set loglevel warn
   - printenv
-  - echo $(printenv)
-
+  
 install: npm ci
 
 before_script:
   - git config --global user.email team+camperbot@freeCodeCamp.org
   - git config --global user.name "CamperBot"
+  - node ./locale.js
 
 script:
   - npm run test

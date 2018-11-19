@@ -22,6 +22,7 @@ steps:
 - script: |
     git config user.email team+camperbot@freeCodeCamp.org
     git config user.name "CamperBot"
+    node ./locale.js
     npm run test
   displayName: 'npm run test'
 
