@@ -15,8 +15,15 @@ steps:
 - script: |
     git config user.email team+camperbot@freeCodeCamp.org
     git config user.name "CamperBot"
+    ulimit -a
     npm run test
   displayName: 'npm run test'
+
+- script: |
+    ulimit -a
+    sudo lsof | awk '{print $1}' | uniq -c | sort -n
+  condition: always() 
+  displayName: 'Show open files, etc'
 
 - task: PublishTestResults@2
   condition: always()
