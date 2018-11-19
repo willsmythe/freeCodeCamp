@@ -29,7 +29,7 @@ steps:
 
 - script: |
     ulimit -a
-    sudo lsof +D $(Build.Repository.LocalPath) | awk '{print $1}' | uniq -c | sort -n
+    sudo lsof -N | awk '{print $1}' | uniq -c | sort -n
   condition: always() 
   displayName: 'Show open files, etc'
 
