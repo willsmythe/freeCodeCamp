@@ -2,6 +2,13 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
+
+- script: |
+    node --version
+    which node --all
+    printenv
+  displayName: 'Show node info'
+
 - task: NodeTool@0
   inputs:
     versionSpec: '10.13.x'
@@ -15,14 +22,12 @@ steps:
 - script: |
     git config user.email team+camperbot@freeCodeCamp.org
     git config user.name "CamperBot"
-    ulimit -a
     npm run test
   displayName: 'npm run test'
 
 - script: |
     ulimit -a
-    sudo lsof $(Build.Repository.LocalPath)
-    sudo lsof $(Build.Repository.LocalPath) | awk '{print $1}' | uniq -c | sort -n
+    sudo lsof +D $(Build.Repository.LocalPath) | awk '{print $1}' | uniq -c | sort -n
   condition: always() 
   displayName: 'Show open files, etc'
 
